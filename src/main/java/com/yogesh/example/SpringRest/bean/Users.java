@@ -9,9 +9,9 @@ import javax.validation.constraints.Size;
 public class Users {
 	
 	private Integer id;
-	@Size(min=2,message="Minimum 2 characters is required for name")
+	@Size(min=2,message="message.error.name")
 	private String name;
-	@Size(min=2,message="Minimum 2 characters is required address")
+	@Size(min=2,message="message.error.address")
 	private String address;
 	@Past
 	private Date dob;
