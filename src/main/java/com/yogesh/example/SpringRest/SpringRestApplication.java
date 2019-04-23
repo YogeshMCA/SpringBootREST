@@ -11,11 +11,19 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+
 @SpringBootApplication
 public class SpringRestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringRestApplication.class, args);
+	}
+	
+	@Bean
+	public SimpleFilterProvider simpleFilterProvider(){
+		return new SimpleFilterProvider();
 	}
 
 	@Bean
