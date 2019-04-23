@@ -27,7 +27,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<<<<<<< HEAD
+
 		<!-- oAuth - Authenticate with Okta with client id and secret -->
 		<!-- <dependency>
     		<groupId>com.okta.spring</groupId>
@@ -49,13 +49,12 @@
 		<!-- Actuator is to enable the production ready application, which means it provides application monitoring, gathering metrics,state of DB and app.
 			URL:http://localhost:8081/browser/index.html#/actuator
 		  -->
-=======
->>>>>>> 74eb4a21ab0cda14a53a92735e1f83490a43175e
+
 		<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-actuator</artifactId>
     	</dependency>
-<<<<<<< HEAD
+
     	<!-- Including HAL within our REST API makes it much more explorable to users as well as being essentially self-documenting -->
 		<dependency>
     		<groupId>org.springframework.data</groupId>
@@ -80,7 +79,7 @@
     		<version>2.4.0</version>
 		</dependency>
 		<!-- Sharing additional information related to the request from the consumer, i.e Provider can share the additional information like link to items along with the user purchased items response. -->
-=======
+
     	<!-- Actuator is to enable the production ready application, which means it provides application monitoring, gathering metrics,state of DB and app  -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -92,7 +91,7 @@
     		<artifactId>spring-data-rest-hal-browser</artifactId>
     		
     	</dependency>
->>>>>>> 74eb4a21ab0cda14a53a92735e1f83490a43175e
+
 		<dependency>
       		<groupId>org.springframework.boot</groupId>
       		<artifactId>spring-boot-starter-hateoas</artifactId>
@@ -124,8 +123,8 @@
 		</plugins>
 	</build>
 
-<<<<<<< HEAD
+
 </project>
-=======
-</project>
->>>>>>> 74eb4a21ab0cda14a53a92735e1f83490a43175e
+
+
+
