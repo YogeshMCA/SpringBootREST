@@ -2,13 +2,17 @@ package com.yogesh.example.SpringRest.bean;
 
 import java.util.Date;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+=======
+>>>>>>> 74eb4a21ab0cda14a53a92735e1f83490a43175e
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -26,6 +30,15 @@ public class Users {
 	@Size(min=2,message="message.error.address")
 	private String address;
 	//@JsonIgnore //This will ignore this field in the response
+=======
+public class Users {
+	
+	private Integer id;
+	@Size(min=2,message="message.error.name")
+	private String name;
+	@Size(min=2,message="message.error.address")
+	private String address;
+>>>>>>> 74eb4a21ab0cda14a53a92735e1f83490a43175e
 	@Past
 	private Date dob;
 	
