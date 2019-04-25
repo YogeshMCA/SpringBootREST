@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.h2.engine.User;
 import org.springframework.stereotype.Component;
 import com.yogesh.example.SpringRest.bean.Users;
 
