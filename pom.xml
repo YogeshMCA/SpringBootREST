@@ -80,18 +80,19 @@
 		</dependency>
 		<!-- Sharing additional information related to the request from the consumer, i.e Provider can share the additional information like link to items along with the user purchased items response. -->
 
-    	<!-- Actuator is to enable the production ready application, which means it provides application monitoring, gathering metrics,state of DB and app  -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<!-- Including HAL within our REST API makes it much more explorable to users as well as being essentially self-documenting -->
-		<dependency>
-    		<groupId>org.springframework.data</groupId>
-    		<artifactId>spring-data-rest-hal-browser</artifactId>
-    		
+    	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-data-redis</artifactId>
     	</dependency>
-
+    	<dependency>
+    		<groupId>redis-clients</groupId>
+    		<artifactId>jedis</artifactId>
+    		<version>2.9.0</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-pools2</artifactId>
+    	</dependency>
 		<dependency>
       		<groupId>org.springframework.boot</groupId>
       		<artifactId>spring-boot-starter-hateoas</artifactId>

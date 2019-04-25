@@ -46,10 +46,7 @@ public class Controller {
 	@Autowired
 	UserService service;
 	
-	@Autowired
 
-	UsersRepository usersRepository;
-	
 	@Autowired
 	SimpleFilterProvider simpleFilterProvider;
 	
@@ -70,7 +67,7 @@ public class Controller {
 
 	@GetMapping(path="/jpa/user-detail")
 	public List<Users> getAllUsers(){
-		return usersRepository.findAll();
+		return service.getAllUsers();
 	}
 
 	@GetMapping(path="/user-detail/{id}")
