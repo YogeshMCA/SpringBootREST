@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 
 @Configuration
@@ -18,6 +19,7 @@ public class RedisConfiguration {
 	@Value("${spring.redis.password}")
 	private String PASS;
 	
+	
 	@Bean
 	public JedisConnectionFactory jedisConnectionFactory() {
 		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
@@ -29,7 +31,7 @@ public class RedisConfiguration {
 		return factory;
 	}
 	
-	@Bean
+	@Bean(name="redisTemplate")
 	public RedisTemplate<String, Object> redisTemplate(){
 		RedisTemplate<String,Object> template = new RedisTemplate<>();
 		template.setConnectionFactory(jedisConnectionFactory());

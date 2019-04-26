@@ -1,5 +1,6 @@
 package com.yogesh.example.SpringRest.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -17,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 //@JsonIgnoreProperties({"address","id"})//Class level - mention all fields at one place
 @Entity
-public class Users {
+public class Users implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer id;

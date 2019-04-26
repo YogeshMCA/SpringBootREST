@@ -3,8 +3,12 @@ package com.yogesh.example.SpringRest.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -16,10 +20,12 @@ public class UserService {
 	
 	@Autowired
 	UsersRepository usersRepository;
-	@Autowired
-	private HashOperations<String,Object,Users> hashOperation;
-	private RedisTemplate<String, Users> redisTemplate;
 	
+	@Resource(name="redisTemplate")
+	private RedisTemplate<String, Users> redisTemplate;
+	@Resource(name="redisTemplate")
+	private HashOperations<String,Object,Users> hashOperation;
+			
 	private static int count = 3;
 	private static List<Users> userLst = new ArrayList<Users>();
 	static{
@@ -28,11 +34,20 @@ public class UserService {
 		userLst.add(new Users(3,"Kumar","Ooty",new Date()));
 	}
 	
+	public String expireRedis(){
+		if(this.redisTemplate.expire("TABLE_USER", 1, TimeUnit.SECONDS))
+			return "Cleared";
+		else
+			return "Not Cleared";
+	}
 	public List<Users> getAllUsers(){
-		List<Users> lst = usersRepository.findAll();
-		lst.forEach(user->hashOperation.put("TABLE_USER","USERS", user));
-				
-		return usersRepository.findAll();
+		System.out.println(redisTemplate.hasKey("TABLE_USER"));
+		if(!redisTemplate.hasKey("TABLE_USER")){
+			List<Users> lst = usersRepository.findAll();
+			lst.forEach(user->hashOperation.put("TABLE_USER","USERS_"+user.getId(),user));
+		}
+		return hashOperation.values("TABLE_USER");
+		
 		//return userLst;
 	}
 	

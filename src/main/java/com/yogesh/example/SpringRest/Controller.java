@@ -46,12 +46,13 @@ public class Controller {
 	@Autowired
 	UserService service;
 	
+	@Autowired
+	UsersRepository usersRepository;
 
 	@Autowired
 	SimpleFilterProvider simpleFilterProvider;
 	
 	@Autowired
-
 	MessageSource messageSources; //Object name should be same as bean name (here method name messageSources )
 	
 	@GetMapping(path="/hello")
@@ -64,10 +65,14 @@ public class Controller {
 		return service.getAllUsers();
 	}
 
+	@GetMapping(path="/redis-expire")
+	public String expire(){
+		return service.expireRedis();
+	}
 
 	@GetMapping(path="/jpa/user-detail")
 	public List<Users> getAllUsers(){
-		return service.getAllUsers();
+		return usersRepository.findAll();
 	}
 
 	@GetMapping(path="/user-detail/{id}")
