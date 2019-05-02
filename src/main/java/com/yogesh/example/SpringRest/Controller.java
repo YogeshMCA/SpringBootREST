@@ -1,9 +1,5 @@
 package com.yogesh.example.SpringRest;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-
-
 import java.net.URI;
 import java.util.List;
 import java.util.Locale;
@@ -11,15 +7,7 @@ import java.util.Locale;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.context.MessageSource;
-
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cglib.core.Local;
-import org.springframework.context.MessageSource;
-import org.springframework.hateoas.Resource;
-import org.springframework.hateoas.mvc.ControllerLinkBuilder;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,14 +18,12 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-
 import com.yogesh.example.SpringRest.bean.Hello;
 import com.yogesh.example.SpringRest.bean.Users;
 import com.yogesh.example.SpringRest.exceptions.UserNotFoundException;
+import com.yogesh.example.SpringRest.services.ServiceExchangeRate;
 import com.yogesh.example.SpringRest.services.UserService;
-
 import com.yogesh.example.SpringRest.services.UsersRepository;
 
 @RestController
@@ -55,6 +41,14 @@ public class Controller {
 	@Autowired
 	MessageSource messageSources; //Object name should be same as bean name (here method name messageSources )
 	
+	@Autowired
+	private ServiceExchangeRate serviceExchangeRate;
+	
+	@GetMapping(path="/convert/USD/to/{to}")
+	public String currencyConvert(@PathVariable String to){
+		return serviceExchangeRate.getRate(to);
+		
+	}
 	@GetMapping(path="/hello")
 	public Hello getMessage(){
 		return new Hello("Yogesh","MCA");
