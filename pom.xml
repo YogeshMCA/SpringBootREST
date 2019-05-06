@@ -11,7 +11,7 @@
 	<groupId>com.yogesh.example</groupId>
 	<artifactId>SpringRest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringRest</name>
+	<name>exchange-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

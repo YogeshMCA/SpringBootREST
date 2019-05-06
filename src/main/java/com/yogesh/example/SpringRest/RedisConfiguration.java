@@ -1,8 +1,9 @@
-package com.yogesh.example.SpringRest;
+/*package com.yogesh.example.SpringRest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -20,7 +21,7 @@ public class RedisConfiguration {
 	private String PASS;
 	
 	
-	@Bean
+	@Bean(name="jedisConnFactory")
 	public JedisConnectionFactory jedisConnectionFactory() {
 		RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
 		config.setHostName(HOST);
@@ -38,3 +39,4 @@ public class RedisConfiguration {
 		return template;
 	}
 }
+*/
